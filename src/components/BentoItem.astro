@@ -1,0 +1,28 @@
+---
+interface Props {
+    class?: string
+    title: string
+    subtitle?: string
+}
+const {title, subtitle} = Astro.props
+---
+
+
+<article class={`
+    ${Astro.props.class}
+    col-span-5
+    relative rounded-xl
+    backdrop-blur-md
+    border border-black/10
+    shadow-inner shadow-white/10
+`}>
+
+    <!-- TODO: Añadir un fade in negro para que se vea el contenido -->
+
+    <slot name="image"></slot>
+    <div class="select-none">    
+       <h2>{title}</h2>
+       {subtitle  && <h3>{subtitle}</h3>}
+       <slot name="content"></slot>
+    </div>
+</article>
